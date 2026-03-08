@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Board Game</title>
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="snakestyle.css">
+</head>
+<body>
+
+<div class="header">
+
+    <div class="logo">
+        <a href="homepage.html">
+            <img src="personal_logo.jpeg" alt="Logo">
+        </a>
+    </div>
+
+    <nav class="nav-links">
+        <a href="homepage.html#basic-knowledge">Basic Knowledge</a>
+        <a href="homepage.html#about-me">About Me</a>
+        <a href="homepage.html#about-the-project">About Project</a>
+    </nav>
+
+</div>
+
+<section>
+<!--START SCREEN-->
+<div id="startScreen" class="screen active">
+    <h1>Board Game</h1>
+    <button id="startBtn">Start Game</button>
+</div>
+
+<!-- GAME SCREEN-->
+<div id="gameScreen" class="screen">
+    <h1>Board Game</h1>
+
+<div class="top-bar">
+
+    <div class="left-section">
+        <span>⏱ <span id="gameTimer">0</span>s</span>
+    </div>
+
+    <div class="center-section">
+        <div class="inventory-wrapper">
+            <span class="inventory-label">Dice:</span>
+            <div id="diceInventory"></div>
+        </div>
+        🎲 <span id="diceResult">-</span>
+    </div>
+
+    <div class="right-section">
+        <div id="streakDisplay">Answer Streak: 0</div>
+        <span id="attemptDisplay">Answer Attempts: 1</span>
+    </div>
+
+</div>
+
+    <div class="container">
+        <!-- Board -->
+        <div id="board" class="board"></div>
+
+        <!-- Quiz Panel -->
+        <div class="quiz-panel">
+            <h2>Answer to Roll</h2>
+            <h3 id="question"></h3>
+            <div id="answers"></div>
+            <p id="feedback"></p>
+            <button id="nextBtn" class="hidden">Next Question</button>
+        </div>
+    </div>
+</div>
+
+<!-- END SCREEN-->
+<div id="endScreen" class="screen">
+    <h1> Congratulations! </h1>
+    <p id="finalTime">Time: 0s</p>
+    <p id="finalMoves">Moves: 0</p>
+    <p id="finalStreak">Max Streak: 0</p>
+    <button id="restartBtn">Restart Game</button>
+</div>
+</section>
+<script src="snakescript.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+    color: white;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+}
+
+/*  BREADCRUMB */
+.content .breadcrumb {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.content .breadcrumb a {
+    color: white;
+    text-decoration: none;
+}
+
+.content .breadcrumb span {
+    color: #888;
+}
+
+/* LAYOUT */
+.layout {
+    display: flex;
+}
+
+/* SIDE NAVIGATION */
+.side-nav {
+    position: sticky;
+    top: 100px;
+    width: 220px;
+    height: fit-content;
+    padding-left: 40px;
+}
+
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-nav li {
+    margin-bottom: 20px;
+}
+
+.side-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.side-nav a:hover {
+    color: #888;
+}
+
+/* CONTENT */
+.content {
+    flex: 1;
+    padding: 0 60px 100px 60px;
+}
+
+.content section {
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+.content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
