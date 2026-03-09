@@ -15,8 +15,18 @@ let tileEffects = {};
 let fixedRemaining = 1;
 let tempRemaining = 0;
 
-let quizMode = "question";
+let quizMode = "start";
 let lastAnswerCorrect = false;
+
+//
+//FECTH QUESTION
+//
+
+async function loadQuestions() {
+    const response = await fetch("questions.json");
+    const data = await response.json();
+    allQuestions = data;
+}
 
 // 
 // DICE SYSTEM
@@ -162,9 +172,10 @@ function generateDiceResult(type) {
 // 
 // BOARD
 // 
-const board = document.getElementById("board");
+let board;
 
 function createBoard() {
+    board = document.getElementById("board");
     board.innerHTML = "";
 
     for (let i = 100; i >= 1; i--) {
@@ -341,205 +352,38 @@ function showEffectMessage(text) {
     document.getElementById("nextBtn").classList.remove("hidden");
 }
 
+//
+// FISHER-YATE SHUFFLE
+//
+function shuffleArray(array) {
+    const shuffled = [...array];
+
+    for (let i = shuffled.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+
+        [shuffled[i], shuffled[j]] =
+        [shuffled[j], shuffled[i]];
+    }
+
+    return shuffled;
+}
+
 // 
 // QUESTIONS
 // 
-const allQuestions = [
-
-{
-question: "What is culture?",
-options: [
-"Genetic traits inherited from parents",
-"Shared values, beliefs, and behaviors of a group",
-"Individual personality traits",
-"Biological instincts"
-],
-answer: "Shared values, beliefs, and behaviors of a group",
-explanation: "Culture refers to the shared values, norms, beliefs, and practices that characterize a group and are transmitted through social learning."
-},
-
-{
-question: "Culture is primarily learned through:",
-options: [
-"Genetics",
-"Social interaction",
-"Evolution",
-"Random behavior"
-],
-answer: "Social interaction",
-explanation: "Culture is learned through communication, observation, and interaction with others in society."
-},
-
-{
-question: "Which field studies how culture influences psychological processes?",
-options: [
-"Social psychology",
-"Cultural psychology",
-"Clinical psychology",
-"Biological psychology"
-],
-answer: "Cultural psychology",
-explanation: "Cultural psychology examines how culture shapes thinking, emotions, and behavior."
-},
-
-{
-question: "Acculturation refers to:",
-options: [
-"Losing all original cultural traditions",
-"The exchange of cultural traits between groups",
-"The development of a new language",
-"Biological adaptation"
-],
-answer: "The exchange of cultural traits between groups",
-explanation: "Acculturation occurs when groups from different cultures interact and adopt cultural traits from each other while often maintaining distinct identities."
-},
-
-{
-question: "Cultural universals are:",
-options: [
-"Traits unique to one culture",
-"Behaviors found in every culture",
-"Traditions passed through families",
-"Biological instincts only"
-],
-answer: "Behaviors found in every culture",
-explanation: "Cultural universals are behaviors or patterns that appear across many cultures, such as facial expressions of basic emotions."
-},
-
-{
-question: "The concept of WEIRD populations refers to:",
-options: [
-"Strange psychological behaviors",
-"Western, Educated, Industrialized, Rich, Democratic societies",
-"Rare psychological disorders",
-"Cultural minorities"
-],
-answer: "Western, Educated, Industrialized, Rich, Democratic societies",
-explanation: "Many psychological studies are conducted mainly on WEIRD populations, which may limit how well findings apply to other cultures."
-},
-
-{
-question: "Individualism emphasizes:",
-options: [
-"Group harmony",
-"Personal goals and independence",
-"Religious traditions",
-"Collective identity"
-],
-answer: "Personal goals and independence",
-explanation: "Individualistic cultures prioritize personal achievements, independence, and self-expression."
-},
-
-{
-question: "Collectivism emphasizes:",
-options: [
-"Individual competition",
-"Personal freedom",
-"Group relationships and cooperation",
-"Isolation from society"
-],
-answer: "Group relationships and cooperation",
-explanation: "Collectivist cultures emphasize group harmony, family loyalty, and shared goals."
-},
-
-{
-question: "An allocentric person tends to:",
-options: [
-"Focus mainly on personal success",
-"Focus on group relationships",
-"Avoid social interaction",
-"Ignore cultural norms"
-],
-answer: "Focus on group relationships",
-explanation: "Allocentric individuals emphasize relationships and group goals, which is common in collectivist cultures."
-},
-
-{
-question: "An idiocentric person tends to:",
-options: [
-"Prioritize personal goals",
-"Prioritize group needs",
-"Avoid decision making",
-"Follow traditions strictly"
-],
-answer: "Prioritize personal goals",
-explanation: "Idiocentric individuals focus on personal identity, independence, and individual goals."
-},
-
-{
-question: "Culture can influence:",
-options: [
-"Only traditions",
-"Only language",
-"Thoughts, emotions, and behaviors",
-"Only economic activities"
-],
-answer: "Thoughts, emotions, and behaviors",
-explanation: "Culture shapes how people think, feel, communicate, and behave."
-},
-
-{
-question: "Which psychologist developed cultural dimensions theory?",
-options: [
-"Sigmund Freud",
-"Jean Piaget",
-"Geert Hofstede",
-"B. F. Skinner"
-],
-answer: "Geert Hofstede",
-explanation: "Geert Hofstede developed a model comparing cultures across several dimensions."
-},
-
-{
-question: "Power distance refers to:",
-options: [
-"Distance between countries",
-"Acceptance of unequal power distribution",
-"Emotional distance between people",
-"Economic inequality only"
-],
-answer: "Acceptance of unequal power distribution",
-explanation: "Power distance describes how much inequality in authority people accept in a society."
-},
-
-{
-question: "Evoked culture refers to:",
-options: [
-"Cultural traditions taught in school",
-"Adaptive responses to environmental conditions",
-"Imported cultural traditions",
-"Religious practices only"
-],
-answer: "Adaptive responses to environmental conditions",
-explanation: "Evoked culture results from humans adapting psychologically to environmental challenges."
-},
-
-{
-question: "Transmitted culture refers to:",
-options: [
-"Cultural values passed through social learning",
-"Genetic inheritance",
-"Environmental adaptation",
-"Economic systems"
-],
-answer: "Cultural values passed through social learning",
-explanation: "Transmitted culture spreads through communication and social interaction."
-}
-
-];
-
+let allQuestions = [];
 let learningQueue = [];
 let masteredPool = [];
 let currentQuestion = null;
 
 function initializeQuestions() {
-    learningQueue = [...allQuestions];
+    learningQueue = shuffleArray(allQuestions);
     masteredPool = [];
 }
 
 function loadNextQuestion() {
     if (learningQueue.length === 0) {
-        learningQueue = [...masteredPool];
+        learningQueue = shuffleArray(masteredPool);
         masteredPool = [];
     }
 
@@ -559,12 +403,18 @@ function renderQuestion() {
     a.innerHTML = "";
     q.textContent = currentQuestion.question;
 
-    currentQuestion.options.forEach(option => {
+    const shuffledOptions = shuffleArray(currentQuestion.options);
+
+    shuffledOptions.forEach(option => {
         const btn = document.createElement("button");
+
         btn.textContent = option;
+
         btn.onclick = () => handleAnswer(option);
+
         a.appendChild(btn);
     });
+
 }
 
 function handleAnswer(selected) {
@@ -594,8 +444,6 @@ function handleAnswer(selected) {
 
         wrongStreak = 0;
 
-        learningQueue.shift();
-        masteredPool.push(currentQuestion);
 
         setTimeout(() => {
             showExplanation(currentQuestion.explanation);
@@ -625,7 +473,6 @@ function handleAnswer(selected) {
     }
 
     // LAST ATTEMPT FAILED
-
     winstreak = 0;
     wrongStreak++;
     updateStreakDisplay();
@@ -673,23 +520,42 @@ function consumeAttempt(){
 }
 
 function showExplanation(text){
-    quizMode="explanation";
-    document.getElementById("question").textContent=text;
-    document.getElementById("answers").innerHTML="";
+
+    quizMode = "explanation";
+
+    if (lastAnswerCorrect) {
+        learningQueue.shift();
+        masteredPool.push(currentQuestion);
+    } else {
+        learningQueue.shift();
+        learningQueue.push(currentQuestion);
+    }
+
+    document.getElementById("question").textContent = text;
+    document.getElementById("answers").innerHTML = "";
     document.getElementById("nextBtn").classList.remove("hidden");
 }
 
-document.getElementById("nextBtn").onclick=function(){
+document.getElementById("nextBtn").onclick = function(){
 
-    if(quizMode==="explanation"){
+    if (quizMode === "start") return;
+
+    if (quizMode === "explanation") {
+
         if (lastAnswerCorrect) {
+            lastAnswerCorrect = false;
             rollDice();
-            lastAnswerCorrect = false; // reset immediately
-            if (quizMode === "effect") return;
+
+            if (quizMode === "effect") {
+                return;   // wait for next click
+            }
         }
+
         loadNextQuestion();
+        return;
     }
-    else if(quizMode==="effect"){
+
+    if (quizMode === "effect") {
         loadNextQuestion();
     }
 };
@@ -713,7 +579,6 @@ function startGame(){
     updateDiceDisplay();
     loadNextQuestion();
     startGameTimer();
-    showScreen("game");
 }
 
 function startGameTimer(){
@@ -725,27 +590,41 @@ function startGameTimer(){
 }
 
 function endGame(){
+
     clearInterval(gameInterval);
 
-    document.getElementById("finalTime").textContent =
-        "Time: " + gameTime + "s";
+    quizMode = "end";
 
-    document.getElementById("finalMoves").textContent =
-        "Moves: " + totalMoves;
+    document.getElementById("question").textContent =
+        " You escape!";
 
-    document.getElementById("finalStreak").textContent =
-        "Max Streak: " + maxStreak;
+    document.getElementById("answers").innerHTML =
+        `<p>Time: ${gameTime}s</p>
+         <p>Moves: ${totalMoves}</p>
+         <p>Max Streak: ${maxStreak}</p>
+         <button id="restartBtn">Play Again</button>`;
 
-    showScreen("end");
+    document.getElementById("nextBtn").classList.add("hidden");
+
+    document.getElementById("restartBtn").onclick = startGame;
 }
 
-function showScreen(screen){
-    document.querySelectorAll(".screen")
-        .forEach(s=>s.classList.remove("active"));
-    document.getElementById(screen+"Screen")
-        .classList.add("active");
-}
 
-document.getElementById("startBtn").onclick=startGame;
-document.getElementById("restartBtn").onclick=startGame;
-showScreen("start");
+async function showStartScreen(){
+
+    document.getElementById("nextBtn").classList.add("hidden"); 
+    await loadQuestions();
+
+    quizMode = "start";
+
+    document.getElementById("question").textContent =
+        "Reach tile 100 to win";
+
+    document.getElementById("answers").innerHTML =
+        `<button id="startGameBtn">Start Game</button>`;
+
+    document.getElementById("startGameBtn").onclick = startGame;
+}
+window.onload = function () {
+    showStartScreen();
+};

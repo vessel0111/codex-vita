@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Board Game</title>
     <link rel="stylesheet" href="global.css">
     <link rel="stylesheet" href="snakestyle.css">
@@ -24,14 +25,8 @@
 </div>
 
 <section>
-<!--START SCREEN-->
-<div id="startScreen" class="screen active">
-    <h1>Board Game</h1>
-    <button id="startBtn">Start Game</button>
-</div>
-
 <!-- GAME SCREEN-->
-<div id="gameScreen" class="screen">
+<div id="gameScreen">
     <h1>Board Game</h1>
 
 <div class="top-bar">
@@ -68,15 +63,6 @@
             <button id="nextBtn" class="hidden">Next Question</button>
         </div>
     </div>
-</div>
-
-<!-- END SCREEN-->
-<div id="endScreen" class="screen">
-    <h1> Congratulations! </h1>
-    <p id="finalTime">Time: 0s</p>
-    <p id="finalMoves">Moves: 0</p>
-    <p id="finalStreak">Max Streak: 0</p>
-    <button id="restartBtn">Restart Game</button>
 </div>
 </section>
 <script src="snakescript.js"></script>

@@ -1,0 +1,422 @@
+[
+{
+"question":"What is culture?",
+"options":[
+"Genetic traits inherited from parents",
+"Shared values, beliefs, and behaviors of a group",
+"Individual personality traits",
+"Biological instincts"
+],
+"answer":"Shared values, beliefs, and behaviors of a group",
+"explanation":"Culture refers to the shared values, norms, beliefs, and practices that characterize a group and are transmitted through social learning."
+},
+
+{
+"question":"Culture is primarily learned through:",
+"options":[
+"Genetics",
+"Social interaction",
+"Evolution",
+"Random behavior"
+],
+"answer":"Social interaction",
+"explanation":"Culture is learned through communication, observation, and interaction with others."
+},
+
+{
+"question":"Which field studies how culture influences psychological processes?",
+"options":[
+"Social psychology",
+"Cultural psychology",
+"Clinical psychology",
+"Biological psychology"
+],
+"answer":"Cultural psychology",
+"explanation":"Cultural psychology examines how culture shapes thinking, emotions, and behavior."
+},
+
+{
+"question":"Acculturation refers to:",
+"options":[
+"Losing all original cultural traditions",
+"The exchange of cultural traits between groups",
+"The development of a new language",
+"Biological adaptation"
+],
+"answer":"The exchange of cultural traits between groups",
+"explanation":"Acculturation occurs when groups from different cultures interact and adopt cultural traits from each other."
+},
+
+{
+"question":"Cultural universals are:",
+"options":[
+"Traits unique to one culture",
+"Behaviors found in every culture",
+"Traditions passed through families",
+"Biological instincts only"
+],
+"answer":"Behaviors found in every culture",
+"explanation":"Cultural universals are behaviors or patterns found across many cultures."
+},
+
+{
+"question":"The concept of WEIRD populations refers to:",
+"options":[
+"Strange psychological behaviors",
+"Western, Educated, Industrialized, Rich, Democratic societies",
+"Rare psychological disorders",
+"Cultural minorities"
+],
+"answer":"Western, Educated, Industrialized, Rich, Democratic societies",
+"explanation":"Many psychological studies focus on WEIRD populations, which may limit generalizability."
+},
+
+{
+"question":"Individualism emphasizes:",
+"options":[
+"Group harmony",
+"Personal goals and independence",
+"Religious traditions",
+"Collective identity"
+],
+"answer":"Personal goals and independence",
+"explanation":"Individualistic cultures prioritize personal achievements and independence."
+},
+
+{
+"question":"Collectivism emphasizes:",
+"options":[
+"Individual competition",
+"Personal freedom",
+"Group relationships and cooperation",
+"Isolation from society"
+],
+"answer":"Group relationships and cooperation",
+"explanation":"Collectivist cultures emphasize group harmony and shared goals."
+},
+
+{
+"question":"An allocentric person tends to:",
+"options":[
+"Focus mainly on personal success",
+"Focus on group relationships",
+"Avoid social interaction",
+"Ignore cultural norms"
+],
+"answer":"Focus on group relationships",
+"explanation":"Allocentric individuals emphasize relationships and group goals."
+},
+
+{
+"question":"An idiocentric person tends to:",
+"options":[
+"Prioritize personal goals",
+"Prioritize group needs",
+"Avoid decision making",
+"Follow traditions strictly"
+],
+"answer":"Prioritize personal goals",
+"explanation":"Idiocentric individuals focus on personal identity and independence."
+},
+
+{
+"question":"Culture can influence:",
+"options":[
+"Only traditions",
+"Only language",
+"Thoughts, emotions, and behaviors",
+"Only economic activities"
+],
+"answer":"Thoughts, emotions, and behaviors",
+"explanation":"Culture shapes how people think, feel, communicate, and behave."
+},
+
+{
+"question":"Which psychologist developed cultural dimensions theory?",
+"options":[
+"Sigmund Freud",
+"Jean Piaget",
+"Geert Hofstede",
+"B. F. Skinner"
+],
+"answer":"Geert Hofstede",
+"explanation":"Geert Hofstede developed a model comparing cultures across several dimensions."
+},
+
+{
+"question":"Power distance refers to:",
+"options":[
+"Distance between countries",
+"Acceptance of unequal power distribution",
+"Emotional distance between people",
+"Economic inequality only"
+],
+"answer":"Acceptance of unequal power distribution",
+"explanation":"Power distance describes how much inequality in authority people accept."
+},
+
+{
+"question":"Evoked culture refers to:",
+"options":[
+"Cultural traditions taught in school",
+"Adaptive responses to environmental conditions",
+"Imported cultural traditions",
+"Religious practices only"
+],
+"answer":"Adaptive responses to environmental conditions",
+"explanation":"Evoked culture results from humans adapting psychologically to environmental challenges."
+},
+
+{
+"question":"Transmitted culture refers to:",
+"options":[
+"Cultural values passed through social learning",
+"Genetic inheritance",
+"Environmental adaptation",
+"Economic systems"
+],
+"answer":"Cultural values passed through social learning",
+"explanation":"Transmitted culture spreads through communication and social interaction."
+},
+
+{
+"question":"Cultural norms are:",
+"options":[
+"Biological reflexes",
+"Rules about acceptable behavior",
+"Legal systems only",
+"Genetic characteristics"
+],
+"answer":"Rules about acceptable behavior",
+"explanation":"Norms are shared expectations about behavior."
+},
+
+{
+"question":"Cultural diversity refers to:",
+"options":[
+"Cultural similarity",
+"Differences between cultures",
+"Genetic differences",
+"Linguistic similarities"
+],
+"answer":"Differences between cultures",
+"explanation":"Cultural diversity describes the variety of cultures across societies."
+},
+
+{
+"question":"Cultural psychology studies:",
+"options":[
+"Only Western cultures",
+"The relationship between culture and mind",
+"Only language development",
+"Biological adaptation"
+],
+"answer":"The relationship between culture and mind",
+"explanation":"Cultural psychology studies how culture and psychological processes influence each other."
+},
+
+{
+"question":"Ethnocentrism means:",
+"options":[
+"Respecting other cultures",
+"Judging other cultures by one's own standards",
+"Studying cultures objectively",
+"Learning foreign languages"
+],
+"answer":"Judging other cultures by one's own standards",
+"explanation":"Ethnocentrism occurs when people see their own culture as superior."
+},
+
+{
+"question":"Cultural relativism means:",
+"options":[
+"Believing all cultures are identical",
+"Understanding cultures based on their own context",
+"Rejecting cultural traditions",
+"Ignoring cultural differences"
+],
+"answer":"Understanding cultures based on their own context",
+"explanation":"Cultural relativism evaluates cultures within their own context."
+},
+
+{
+"question":"Cultural values influence:",
+"options":[
+"Only economic behavior",
+"Decision making and social behavior",
+"Only education systems",
+"Only family structure"
+],
+"answer":"Decision making and social behavior",
+"explanation":"Values shape choices and social interactions."
+},
+
+{
+"question":"Which factor spreads culture between generations?",
+"options":[
+"Natural selection",
+"Social learning",
+"Mutation",
+"Migration only"
+],
+"answer":"Social learning",
+"explanation":"Cultural knowledge spreads through learning from others."
+},
+
+{
+"question":"Which is an example of a cultural universal?",
+"options":[
+"Language",
+"Economic system",
+"Facial expressions of emotion",
+"Political ideology"
+],
+"answer":"Facial expressions of emotion",
+"explanation":"Basic emotional expressions appear across cultures."
+},
+
+{
+"question":"Cultural identity refers to:",
+"options":[
+"A person's nationality only",
+"A person's sense of belonging to a culture",
+"Political affiliation",
+"Education level"
+],
+"answer":"A person's sense of belonging to a culture",
+"explanation":"Cultural identity reflects how individuals identify with their cultural group."
+},
+
+{
+"question":"Globalization increases:",
+"options":[
+"Cultural isolation",
+"Cultural interaction between societies",
+"Cultural extinction",
+"Cultural uniformity only"
+],
+"answer":"Cultural interaction between societies",
+"explanation":"Globalization increases cultural exchange and interaction."
+},
+
+{
+"question":"Cultural transmission occurs through:",
+"options":[
+"Genetics",
+"Communication and imitation",
+"Climate",
+"Natural disasters"
+],
+"answer":"Communication and imitation",
+"explanation":"Culture spreads through teaching, language, and observation."
+},
+
+{
+"question":"Cultural norms guide:",
+"options":[
+"Weather patterns",
+"Acceptable behavior in society",
+"Biological development",
+"Economic growth"
+],
+"answer":"Acceptable behavior in society",
+"explanation":"Norms help people understand appropriate behavior."
+},
+
+{
+"question":"Cultural psychology helps explain:",
+"options":[
+"Only mental illness",
+"Differences in thinking across societies",
+"Economic inequality",
+"Climate change"
+],
+"answer":"Differences in thinking across societies",
+"explanation":"Cultural psychology studies how culture influences cognition."
+},
+
+{
+"question":"One challenge in studying culture is:",
+"options":[
+"Too many universal behaviors",
+"Cultural bias in research",
+"Lack of cultural differences",
+"Lack of psychological theories"
+],
+"answer":"Cultural bias in research",
+"explanation":"Researchers must avoid bias when interpreting cultures."
+},
+
+{
+"question":"Understanding culture helps improve:",
+"options":[
+"Only economic development",
+"Cross-cultural communication",
+"Genetic research",
+"Natural resource management"
+],
+"answer":"Cross-cultural communication",
+"explanation":"Understanding culture improves global cooperation."
+},
+
+{
+"question":"Which statement best distinguishes evoked culture from transmitted culture?",
+"options":[
+"Evoked culture arises from genetic differences while transmitted culture is socially learned",
+"Evoked culture spreads through globalization while transmitted culture comes from environmental adaptation",
+"Evoked culture emerges from environmental conditions while transmitted culture spreads through social learning",
+"Evoked culture exists only in traditional societies"
+],
+"answer":"Evoked culture emerges from environmental conditions while transmitted culture spreads through social learning",
+"explanation":"Evoked culture comes from environmental triggers while transmitted culture spreads through learning."
+},
+
+{
+"question":"Research criticizing WEIRD populations mainly argues that:",
+"options":[
+"Psychological theories are universal",
+"Psychological findings may not generalize to non-Western populations",
+"Cultural psychology is less scientific",
+"Western populations have different brains"
+],
+"answer":"Psychological findings may not generalize to non-Western populations",
+"explanation":"Most research uses WEIRD participants, limiting generalizability."
+},
+
+{
+"question":"Individualism vs collectivism primarily concerns:",
+"options":[
+"Differences in political systems",
+"The emphasis on personal autonomy versus group interdependence",
+"Differences in economic wealth",
+"Biological personality differences"
+],
+"answer":"The emphasis on personal autonomy versus group interdependence",
+"explanation":"Individualism emphasizes independence while collectivism emphasizes group relationships."
+},
+
+{
+"question":"Stronger cooperation norms in resource-scarce environments support:",
+"options":[
+"Cultural universals",
+"Evoked culture",
+"Cultural relativism",
+"Ethnocentrism"
+],
+"answer":"Evoked culture",
+"explanation":"Environmental pressures can evoke different cultural behaviors."
+},
+
+{
+"question":"High power distance societies are characterized by:",
+"options":[
+"Resistance to hierarchy",
+"High individual autonomy",
+"Acceptance of unequal power distribution",
+"Equal decision-making participation"
+],
+"answer":"Acceptance of unequal power distribution",
+"explanation":"High power distance cultures accept hierarchical authority."
+}
+
+]
