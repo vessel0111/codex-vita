@@ -1,3 +1,5 @@
+
+showSlide(0);
 const greetings = [
     "Hello",
     "Xin chào",
@@ -33,8 +35,12 @@ function Colliding(rect) {
     return false;
 }
 
-function createGreeting() {
-    const hero = document.querySelector('.hero');
+function createfaries() {
+
+const hero = document.querySelector('.slide1.active');
+    if (!hero) return;
+
+    const rectHero = hero.getBoundingClientRect();
     const greeting = document.createElement("div");
     greeting.className = "greeting";
     greeting.innerText = greetings[Math.floor(Math.random() * greetings.length)];
@@ -45,8 +51,8 @@ function createGreeting() {
     let placed = false;
 
     while (!placed && attempts < maxAttempts) {
-        const x = Math.random() * (window.innerWidth - greeting.offsetWidth);
-        const y = Math.random() * (window.innerHeight - greeting.offsetHeight);
+const x = Math.random() * (rectHero.width - greeting.offsetWidth);
+const y = Math.random() * (rectHero.height - greeting.offsetHeight);
 
         greeting.style.left = x + "px";
         greeting.style.top = y + "px";
@@ -73,7 +79,7 @@ function createGreeting() {
     }, displayDuration);
 }
 
-setInterval(createGreeting, 700);
+setInterval(createfaries, 700);
 
 const header = document.querySelector(".header");
 let lastScrollY = window.scrollY;

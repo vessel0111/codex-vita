@@ -1,7 +1,7 @@
+let DEBUG_MODE = false;
 // 
 // GAME STATE
 // 
-let gameState = "start";
 let playerPosition = 1;
 let gameTime = 0;
 let gameInterval;
@@ -198,18 +198,32 @@ function createBoard() {
         board.appendChild(cell);
     }
 }
-
+function checkWin() {
+    if (playerPosition >= 100) {
+        playerPosition = 100;
+        updatePlayer();
+        endGame();
+        return true;
+    }
+    return false;
+}
 function updatePlayer() {
     document.querySelectorAll(".player").forEach(p => p.remove());
     const cell = document.getElementById("cell-" + playerPosition);
     const player = document.createElement("div");
     player.classList.add("player");
-    player.innerText = "P";
+    player.innerText = "P1";
     cell.appendChild(player);
 }
 
-function movePlayer(steps) {
-    playerPosition += steps;
+function movePlayer(amount) {
+
+    playerPosition += amount;
+
+    // prevent going below 1
+    if (playerPosition < 1) playerPosition = 1;
+
+    // prevent going above 100
     if (playerPosition > 100) playerPosition = 100;
 
     updatePlayer();
@@ -320,8 +334,7 @@ function applyNegativeEffect() {
     if (choice === "pushback") {
         let maxPush = Math.floor(playerPosition / 2);
         let pushAmount = Math.floor(Math.random() * (maxPush - 3 + 1)) + 3;
-        playerPosition -= pushAmount;
-        updatePlayer();
+        movePlayer(-pushAmount);
         return `💀 Pushed back ${pushAmount}`;
     }
 
@@ -382,6 +395,7 @@ function initializeQuestions() {
 }
 
 function loadNextQuestion() {
+    if (quizMode === "end") return;
     if (learningQueue.length === 0) {
         learningQueue = shuffleArray(masteredPool);
         masteredPool = [];
@@ -406,14 +420,21 @@ function renderQuestion() {
     const shuffledOptions = shuffleArray(currentQuestion.options);
 
     shuffledOptions.forEach(option => {
-        const btn = document.createElement("button");
 
-        btn.textContent = option;
+    const btn = document.createElement("button");
+    btn.textContent = option;
 
-        btn.onclick = () => handleAnswer(option);
+    // DEBUG: show correct answer
+    if (DEBUG_MODE &&
+        option.toLowerCase() === currentQuestion.answer.toLowerCase()) {
 
-        a.appendChild(btn);
-    });
+        btn.style.border = "3px solid lime";
+    }
+
+    btn.onclick = () => handleAnswer(option);
+
+    a.appendChild(btn);
+});
 
 }
 
@@ -538,7 +559,7 @@ function showExplanation(text){
 
 document.getElementById("nextBtn").onclick = function(){
 
-    if (quizMode === "start") return;
+    if (quizMode === "start" || quizMode === "end") return;
 
     if (quizMode === "explanation") {
 
@@ -564,20 +585,38 @@ document.getElementById("nextBtn").onclick = function(){
 // GAME FLOW
 // 
 function startGame(){
-    playerPosition=1;
-    gameTime=0;
-    winstreak=0;
-    wrongStreak=0;
-    tempRemaining=0;
-    diceInventory=[{type:"d6",turns:-1}];
-    currentDiceMode="d6";
+
+    playerPosition = 1;
+    gameTime = 0;
+
+    winstreak = 0;
+    wrongStreak = 0;
+    maxStreak = 0;
+    totalMoves = 0;
+
+    tempRemaining = 0;
+    fixedRemaining = 1;
+
+    lastAnswerCorrect = false;
+    quizMode = "question"; 
+
+    diceInventory = [{type:"d6",turns:-1}];
+    currentDiceMode = "d6";
 
     generateTileEffects();
     createBoard();
     updatePlayer();
+
     initializeQuestions();
+
     updateDiceDisplay();
-    loadNextQuestion();
+    updateAttemptDisplay();
+    updateStreakDisplay();
+    document.getElementById("question").textContent = "";
+    document.getElementById("answers").innerHTML = "";
+    document.getElementById("nextBtn").classList.add("hidden");
+    loadNextQuestion();  
+
     startGameTimer();
 }
 
@@ -594,7 +633,8 @@ function endGame(){
     clearInterval(gameInterval);
 
     quizMode = "end";
-
+    document.getElementById("AnswerToRoll").textContent =
+        " CONGRATULATION!";
     document.getElementById("question").textContent =
         " You escape!";
 

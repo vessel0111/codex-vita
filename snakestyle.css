@@ -1,34 +1,6 @@
-
-/* ===============================
-   GLOBAL
-=============================== */
-body {
-    font-family: Helvetica, Arial, sans-serif;
-    color:white;
-    background: black;
-    margin: 0;
-    padding: 0;
+h1 {
+    margin: 20px auto;
     text-align: center;
-}
-h1 { margin-top: 20px; }
-.logo img {
-    height: 40px;
-    width: auto;
-}
-
-.hidden {
-    display: none;
-}
-
-/* ===============================
-   SCREENS
-=============================== */
-.screen {
-    display: none;
-}
-
-.screen.active {
-    display: block;
 }
 
 /* ===============================
@@ -132,7 +104,10 @@ h1 { margin-top: 20px; }
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
-.quiz-panel h2 { margin-top: 0; }
+.quiz-panel h2 {
+    margin-top: 0; 
+    text-align: center;
+}
 #answers { margin-top: 10px; }
 #answers button {
     display: block;
@@ -177,8 +152,10 @@ h1 { margin-top: 20px; }
     }
     .quiz-panel { width: 90%; max-width: 400px; }
 }
-
-/* ===============================
-   BUTTONS
-=============================== */
-button { cursor: pointer; }
+#nextBtn {
+    display: block;
+    margin: 15px auto;
+}
+.hidden {
+    display: none !important;
+}

@@ -1,33 +1,3 @@
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-    background-color: black;
-    color: white;
-    font-family: Helvetica, Arial, sans-serif;
-}
-
-/* HEADER */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60px;
-    background-color: #111;
-    display: flex;
-    align-items: center;
-    padding: 0 30px;
-    box-sizing: border-box;
-    z-index: 1000;
-}
-
-.logo img {
-    height: 40px;
-}
-
 /*  BREADCRUMB */
 .content .breadcrumb {
     font-size: 14px;
