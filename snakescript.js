@@ -618,7 +618,7 @@ async function showStartScreen(){
     quizMode = "start";
 
     document.getElementById("question").textContent =
-        "Reach tile 100 to win";
+        "Reach tile 100 to escape from the fox";
 
     document.getElementById("answers").innerHTML =
         `<button id="startGameBtn">Start Game</button>`;
